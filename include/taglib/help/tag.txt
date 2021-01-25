@@ -1,0 +1,7 @@
+TAG调用标签
+>>dede>>
+{dede:tag row='30' sort='new' getall='0'}<a href="[field:link/]">[field:tag /]</a>{/dede:tag}
+>>dede>>
+row='30' 调用条数
+sort='new' 排序方式 month，rand，week
+getall='0' getall:获取类型 0 为当前内容页TAG标记，1为获取全部TAG标记
