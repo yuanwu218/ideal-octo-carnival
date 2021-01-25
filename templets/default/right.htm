@@ -1,0 +1,95 @@
+
+<div class="sider">
+  <div class="right">
+    <div class="author">
+      <div class="topauthor"> <img alt="" src="/style/images/avatar.jpeg" class="avatar avatar-100 photo" height="100" width="100"> <span class="intag">博客主人</span><span class="names">YeLongCu</span></br>
+        <span class="talk"> 男，文化程度不高性格有点犯二，已经20来岁至今未婚，闲着没事喜欢研究各种代码，资深技术宅。 </span> </div>
+      <span class="bot"></span> </div>
+    <div class="butauthor author">
+      <li> <span class="bignum" ID="bignum1"></span>文章总数 </li>
+      <li> <span class="bignum">{dede:sql sql="SELECT SUM(click) AS dd FROM dede_archives where channel=1"}[field:dd/]{/dede:sql}</span>访问次数 </li>
+      <li> <span class="bignum" ID="days"></span>建站天数 </li>
+    </div>
+    <div class="subblock"> <img src="/style/images/3cd871e89f2f6eb8a3a032653a4f8018.jpg"> </div>
+    <div class="subblock">
+      <h3>推荐文章</h3>
+      <ul>
+        {dede:arclist row='5' titlelen='100'}
+        <li>
+          <div class="sideshow"><a href="[field:arcurl/]" target="_ablank"  title="[field:title/]"> [field:array runphp='yes']@me = (strpos(@me['litpic'],'defaultpic') ? "" : "<img width='80' height='60' src='{@me['litpic']}' class='icon wp-post-image' alt='{@me['title']}' title='{@me['title']}' />"); [/field:array] </a> <a href="[field:arcurl/]" target="_ablank"  title="[field:title/]"> [field:title/] </a> <span class="datetime"> [field:pubdate function="MyDate('Y/m/d',@me)"/] </span> </div>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="subblock"> <img src="/style/images/3cd871e89f2f6eb8a3a032653a4f8018.jpg"> </div>
+    <div class="subblock">
+      <h3>热门文章</h3>
+      <ul>
+        {dede:arclist row='5' titlelen='100'}
+        <li>
+          <div class="sideshow"><a href="[field:arcurl/]" target="_ablank"  title="[field:title/]"> [field:array runphp='yes']@me = (strpos(@me['litpic'],'defaultpic') ? "" : "<img width='80' height='60' src='{@me['litpic']}' class='icon wp-post-image' alt='{@me['title']}' title='{@me['title']}' />"); [/field:array] </a> <a href="[field:arcurl/]" target="_ablank"  title="[field:title/]"> [field:title/] </a> <span class="datetime"> [field:pubdate function="MyDate('Y/m/d',@me)"/] </span> </div>
+        </li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="subblock"> <img src="/style/images/3cd871e89f2f6eb8a3a032653a4f8018.jpg"> </div>
+    <div class="subblock">
+      <h3>标签</h3>
+      <ul class="tag_cloud">
+        {dede:tag row='40'} <a href="/plus/search.php?q=[field:tag /]"  target="_blank" title="[field:tag /]" class="tag-link-9" >[field:tag /]</a> {/dede:tag}
+      </ul>
+    </div>
+    <div class="subblock linkcat">
+      <h3>友情链接</h3>
+      <ul>
+        {dede:flink titlelen='16' row='6' type='text'}
+        <li>[field:link /]</li>
+        {/dede:flink}
+      </ul>
+    </div>
+    <ul class="widgets">
+    </ul>
+  </div>
+</div>
+<script>
+var s1 = '2016-05-24';//设置为你的建站时间
+s1 = new Date(s1.replace(/-/g, "/"));
+s2 = new Date();
+var days = s2.getTime() - s1.getTime();
+var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
+document.getElementById('days').innerHTML = number_of_days;
+</script> 
+<script type="text/javascript">
+function NewDate(str) {
+str = str.split('-');
+var date = new Date();
+
+date.setUTCHours(0, 0, 0, 0);
+return date;
+}
+function showsectime() {
+var birthDay =NewDate("2016-05-29");
+var today=new Date();
+var timeold=today.getTime()-birthDay.getTime();
+var sectimeold=timeold/1000
+var secondsold=Math.floor(sectimeold);
+var msPerDay=24*60*60*1000;
+var e_daysold=timeold/msPerDay;
+var daysold=Math.floor(e_daysold);
+var e_hrsold=(daysold-e_daysold)*-24;
+var hrsold=Math.floor(e_hrsold);
+var e_minsold=(hrsold-e_hrsold)*-60;
+var minsold=Math.floor((hrsold-e_hrsold)*-60);
+var seconds=Math.floor((minsold-e_minsold)*-60).toString();
+document.getElementById("bignum").innerHTML = daysold;
+setTimeout(showsectime, 1000);
+}
+showsectime();
+</script> 
+<script type="text/javascript">
+var a = {dede:type   typeid ='6'}[field:ID function='GetTotalArc(@me)'/] {/dede:type};
+var b = {dede:type   typeid ='8'}[field:ID function='GetTotalArc(@me)'/] {/dede:type};
+var c = {dede:type   typeid ='1'}[field:ID function='GetTotalArc(@me)'/] {/dede:type};
+var las_number = a + b+ c;
+document.getElementById("bignum1").innerHTML = Number(a) + Number(b)+ Number(c);
+</script>

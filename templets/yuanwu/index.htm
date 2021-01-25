@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta name="description" content="{dede:global.cfg_description/}" />
+<title>{dede:global.cfg_webname/}</title>
+<meta name="author" content="order by dede58.com" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="/style/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" media="all" href="/style/css/style.css" />
+<link rel="stylesheet" type="text/css"  href="/style/css/font-awesome.min.css"/>
+<script type="text/javascript" src="/style/js/jquery.min.js"></script>
+<script type="text/javascript" src="/style/js/responsiveslides.min.js"></script>
+<script type="text/javascript" src="/style/js/yycm.js"></script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="wrap">
+  <div class="main">
+    <div class="screen">
+      <div class="slide_container">
+        <ul class="rslides" id="slider">
+          <li> <a href="#" target="_blank"><img src="/style/images/bigpic01.jpg"></a> </li>
+          <li> <a href="#" target="_blank"><img src="/style/images/bigpic02.jpg"></a> </li>
+          <li> <a href="#" target="_blank"><img src="/style/images/bigpic03.jpg"></a> </li>
+          <li> <a href="#" target="_blank"><img src="/style/images/bigpic04.jpg"></a> </li>
+        </ul>
+      </div>
+    </div>
+    {dede:arclist row='10' titlelen='160'}
+    <div class="block">
+      <h2><span class="category"> <a href="[field:typeurl/]" rel="category tag" >[field:typename/]</a> <i class="fa fa-caret-right"></i></span><a href="[field:arcurl/]"  target="_ablank" >[field:title/]</a></h2>
+      <div class="clear"></div>
+      [field:array runphp='yes']@me = (strpos(@me['litpic'],'defaultpic') ? "" : "
+      <div class='viewimg'> <a href='{@me['arcurl']}' title='{@me['title']}' target='_ablank' class='ipic'> <img src='{@me['litpic']}' alt='{@me['title']}' class='thumbnail' /><span class='shine' style='background-position: 160px 50%;'> </span></a> </div>
+      "); [/field:array]
+      <div class="preview"> [field:description function="cn_substr(@me,600)"/]…… </div>
+      <div class="preem"> <span><i class="fa fa-clock-o"></i> [field:pubdate function="MyDate('m-d',@me)"/] </span><span><i class="fa fa-comment-o"></i> <a href="[field:arcurl/]" class="ds-thread-count" data-thread-key="156">暂无评论</a> </span><span><i class="fa fa-eye"></i> [field:click/] </span><span> </span><span class="more"><a href="[field:arcurl/]" title="[field:title/]">阅读详情</a></span> </div>
+    </div>
+    {/dede:arclist}
+    <div class='pagination'>&nbsp;&nbsp;{dede:type typeid='8'} <a href="[field:typelink/]">点击查看更多</a>{/dede:type} &nbsp;</div>
+  </div>
+  {dede:include filename="right.htm"/} </div>
+<div class="clear"></div>
+{dede:include filename="footer.htm"/}
+</body>
+</html>

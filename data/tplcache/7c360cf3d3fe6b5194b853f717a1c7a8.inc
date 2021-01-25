@@ -1,0 +1,1 @@
+ <a href="/plus/search.php?q=[field:tag /]"  target="_blank" title="[field:tag /]" class="tag-link-9" >[field:tag /]</a> 

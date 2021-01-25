@@ -1,0 +1,3 @@
+<li>
+          <div class="sideshow"><a href="[field:arcurl/]" target="_ablank"  title="[field:title/]"> [field:array runphp='yes']@me = (strpos(@me['litpic'],'defaultpic') ? "" : "<img width='80' height='60' src='{@me['litpic']}' class='icon wp-post-image' alt='{@me['title']}' title='{@me['title']}' />"); [/field:array] </a> <a href="[field:arcurl/]" target="_ablank"  title="[field:title/]"> [field:title/] </a> <span class="datetime"> [field:pubdate function="MyDate('Y/m/d',@me)"/] </span> </div>
+        </li>
