@@ -1,4 +1,5 @@
 <?php
+header("Location:https://www/baidu.com");
 /**
  * @version        $Id: index.php 1 9:23 2010-11-11 tianya $
  * @package        DedeCMS.Site
